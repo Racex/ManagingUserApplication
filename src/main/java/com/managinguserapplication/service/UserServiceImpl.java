@@ -6,6 +6,7 @@ import com.managinguserapplication.repository.UserRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.util.Collection;
 import java.util.List;
 
 /**
@@ -22,33 +23,49 @@ public class UserServiceImpl implements UserService {
 
 
     @Override
-    public List<User> findAll() {
-        return userRepository.findAll();
+    public Collection<User> findAll() {
+        List<User> temp = userRepository.findAll();
+        for (User x : temp) {
+            if (x.getUserGroup() != null)
+                x.setUserGroupName(x.getUserGroup().getName());
+        }
+        return temp;
     }
 
     @Override
     public User findOne(Long id) {
-        return userRepository.findById(id);
+        User temp = userRepository.findById(id);
+        if (temp.getUserGroup() != null)
+            temp.setUserGroupName(temp.getUserGroup().getName());
+        return temp;
     }
+
 
     @Override
     public boolean create(User user) {
-//        userRepository.create(user);
+        if (user.getUserGroupName() != null)
+            user.setUserGroup(userGroupRepository.findByName(user.getUserGroupName()));
+        userRepository.save(user);
         return true;
     }
 
     @Override
     public List<User> findUserInGroup(Long id) {
-    return userGroupRepository.findOne(id).getUsersList();
+        return userGroupRepository.findOne(id).getUsersList();
     }
 
     @Override
-    public User update(User user) {
-        return null;
+    public boolean update(Long id, User newUser) {
+        newUser.setId(id);
+        if(newUser.getUserGroupName() != null)
+        newUser.setUserGroup(userGroupRepository.findByName(newUser.getUserGroupName()));
+        userRepository.save(newUser);
+        return true;
     }
 
     @Override
     public boolean delete(Long id) {
-        return false;
+        userRepository.delete(id);
+        return true;
     }
 }

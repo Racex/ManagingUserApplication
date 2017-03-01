@@ -3,8 +3,7 @@ package com.managinguserapplication.model;
 import com.fasterxml.jackson.annotation.JsonBackReference;
 
 import javax.persistence.*;
-import javax.validation.constraints.NotNull;
-import java.util.Date;
+import java.time.LocalDate;
 
 /**
  * Created by Maciek on 2017-02-25.
@@ -13,85 +12,99 @@ import java.util.Date;
 @Table(name = "uzytkownik")
 public class User {
 
-        @Id
-        @GeneratedValue
-        @Column(name = "Id_uzytkownika")
-        private Long id;
+    @Id
+    @GeneratedValue
+    @Column(name = "Id_uzytkownika")
+    private Long id;
 
-        @NotNull
-        @Column(name = "Nazwa")
-        private String username;
+    @Column(name = "Nazwa")
+    private String username;
 
-        @NotNull
-        @Column(name = "Haslo")
-        private String password;
+    @Column(name = "Haslo")
+    private String password;
 
-        @NotNull
-        @Column(name = "Imie")
-        private String name;
+    @Column(name = "Imie")
+    private String name;
 
-        @NotNull
-        @Column(name = "Nazwisko")
-        private String surrname;
+    @Column(name = "Nazwisko")
+    private String surrname;
 
-        @NotNull
-        @Column(name = "Data_Urodzenia")
-        private Date birthdaydate;
+    @Column(name = "Data_Urodzenia")
+    private LocalDate birthdaydate;
 
 
-        @ManyToOne(fetch=FetchType.LAZY)
-        @JoinColumn(name="Id_grupy_uzytkownika")
-        @JsonBackReference
-        private UserGroup userGroup;
+    @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "Id_grupy_uzytkownika")
+    @JsonBackReference
+    private UserGroup userGroup;
+
+    @Transient
+    private String userGroupName;
 
 
-        public Long getId() {
-                return id;
-        }
+    public String getName() {
+        return name;
+    }
 
-        public void setId(Long id) {
-                this.id = id;
-        }
+    public void setName(String name) {
+        this.name = name;
+    }
 
-        public String getUsername() {
-                return username;
-        }
+    public String getUserGroupName() {
+        return userGroupName;
+    }
 
-        public void setUsername(String username) {
-                this.username = username;
-        }
+    public void setUserGroupName(String userGroupName) {
+        this.userGroupName = userGroupName;
+    }
 
-        public String getPassword() {
-                return password;
-        }
+    public Long getId() {
+        return id;
+    }
 
-        public void setPassword(String password) {
-                this.password = password;
-        }
+    public void setId(Long id) {
+        this.id = id;
+    }
 
-        public String getSurrname() {
-                return surrname;
-        }
+    public String getUsername() {
+        return username;
+    }
 
-        public void setSurrname(String surrname) {
-                this.surrname = surrname;
-        }
+    public void setUsername(String username) {
+        this.username = username;
+    }
 
-        public Date getBirthdaydate() {
-                return birthdaydate;
-        }
+    public String getPassword() {
+        return password;
+    }
 
-        public void setBirthdaydate(Date birthdaydate) {
-                this.birthdaydate = birthdaydate;
-        }
+    public void setPassword(String password) {
+        this.password = password;
+    }
 
-        public UserGroup getUserGroup() {
-                return userGroup;
-        }
+    public String getSurrname() {
+        return surrname;
+    }
 
-        public void setUserGroup(UserGroup userGroup) {
-                this.userGroup = userGroup;
-        }
+    public void setSurrname(String surrname) {
+        this.surrname = surrname;
+    }
+
+    public LocalDate getBirthdaydate() {
+        return birthdaydate;
+    }
+
+    public void setBirthdaydate(LocalDate birthdaydate) {
+        this.birthdaydate = birthdaydate;
+    }
+
+    public UserGroup getUserGroup() {
+        return userGroup;
+    }
+
+    public void setUserGroup(UserGroup userGroup) {
+        this.userGroup = userGroup;
+    }
 
 
 }

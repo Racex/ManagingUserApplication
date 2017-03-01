@@ -1,0 +1,117 @@
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Aplikacja do zarzadzania urzytkownikamii</title>
+    <link href="css/bootstrap.min.css" rel="stylesheet">
+    <link href="css/style.css" rel="stylesheet">
+    <script src="http://code.jquery.com/jquery-1.10.2.js"></script>
+    <script src="http://code.jquery.com/ui/1.11.2/jquery-ui.js"></script>
+    <script src="js/addUser.js"></script>
+    <script src="js/loadUserGroupSelector.js"></script>
+</head>
+
+
+<div class="container-fluid">
+    <div class="row">
+        <div class="col-md-12">
+            <div class="row">
+                <div class="col-md-12">
+                    <div class="row">
+                        <div class="col-md-3">
+
+                            <button type="button" class="btn btn-default" onclick="location.href='index.html';">
+                                Lista Uzytkowników
+                            </button>
+                        </div>
+                        <div class="col-md-3">
+
+                            <button type="button" class="btn btn-default" onclick="location.href='userGroupList.html';">
+                                Grupy Uzytkowników
+                            </button>
+                        </div>
+                        <div class="col-md-3">
+
+                            <button type="button" class="btn btn-default" onclick="location.href='userAdd.html';">
+                                Dodaj Uzytkownika
+                            </button>
+                        </div>
+
+                        <div class="col-md-3">
+
+                            <button type="button" class="btn btn-default " onclick="location.href='userGroupAdd.html';">
+                                Dodaj Grupe Użytkowników
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col-md-12">
+            <h3>
+                Dodaj Użytkownika
+            </h3>
+            <form role="form" id="userForm">
+
+                <div class="form-group">
+
+                    <label for="userLoginInput">
+                        Nazwa użytkownika
+                    </label>
+                    <input type="text" class="form-control" id="userLoginInput" required/>
+                </div>
+
+
+                <div class="form-group">
+
+                    <label for="userNameInput">
+                        Imię
+                    </label>
+                    <input type="text" class="form-control" id="userNameInput" required/>
+                </div>
+
+                <div class="form-group">
+
+                    <label for="userSurrnameInput">
+                        Nazwisko
+                    </label>
+                    <input type="text" class="form-control" id="userSurrnameInput" required/>
+                </div>
+
+                <div class="form-group">
+
+                    <label for="userPasswordInput">
+                        haslo
+                    </label>
+                    <input type="password" class="form-control" id="userPasswordInput" required/>
+                </div>
+                <div class="form-group">
+
+                    <label for="birthdayInput">
+                        Data urodzin
+                    </label>
+                    <input type="date" class="form-control" id="birthdayInput" required/>
+                </div>
+
+                <div class="form-group">
+                    <label for="selectGroupName">Wybierz nazwę grupy:</label>
+                    <select class="form-control" id="selectGroupName">
+                    </select>
+                </div>
+
+                <button id="submit" type="submit" class="btn btn-default">
+                    Submit
+                </button>
+
+
+            </form>
+        </div>
+
+
+    </div>
+</div>

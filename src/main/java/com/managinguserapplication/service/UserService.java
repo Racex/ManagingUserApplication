@@ -15,11 +15,12 @@ import java.util.List;
 
         User findOne(Long id);
 
+
         boolean create(User user);
 
         List<User> findUserInGroup(Long id);
 
-        User update(User user);
+        boolean update(Long user, User newUser);
 
         boolean delete(Long id);
 
