@@ -3,7 +3,7 @@ package com.managinguserapplication.model;
 import com.fasterxml.jackson.annotation.JsonBackReference;
 
 import javax.persistence.*;
-import java.time.LocalDate;
+import java.util.Date;
 
 /**
  * Created by Maciek on 2017-02-25.
@@ -30,7 +30,7 @@ public class User {
     private String surrname;
 
     @Column(name = "Data_Urodzenia")
-    private LocalDate birthdaydate;
+    private Date birthday;
 
 
     @ManyToOne(fetch = FetchType.LAZY)
@@ -90,12 +90,12 @@ public class User {
         this.surrname = surrname;
     }
 
-    public LocalDate getBirthdaydate() {
-        return birthdaydate;
+    public Date getBirthday() {
+        return birthday;
     }
 
-    public void setBirthdaydate(LocalDate birthdaydate) {
-        this.birthdaydate = birthdaydate;
+    public void setBirthday(Date birthday) {
+        this.birthday = birthday;
     }
 
     public UserGroup getUserGroup() {

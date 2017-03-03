@@ -3,12 +3,14 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>Aplikacja do zarzadzania urzytkownikamii</title>
-    <link href="css/bootstrap.min.css" rel="stylesheet">
-    <link href="css/style.css" rel="stylesheet">
+    <link href="resources/css/bootstrap.min.css" rel="stylesheet">
+    <link href="resources/css/style.css" rel="stylesheet">
+    <link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
     <script src="http://code.jquery.com/jquery-1.10.2.js"></script>
     <script src="http://code.jquery.com/ui/1.11.2/jquery-ui.js"></script>
-    <script src="js/addUser.js"></script>
-    <script src="js/loadUserGroupSelector.js"></script>
+    <script src="resources/js/addUser.js"></script>
+    <script src="resources/js/loadUserGroupSelector.js"></script>
+    <script src="resources/js/dataPicker.js"></script>
 </head>
 
 
@@ -26,7 +28,7 @@
                         </div>
                         <div class="col-md-3">
 
-                            <button type="button" class="btn btn-default" onclick="location.href='userGroupList.html';">
+                            <button type="button" class="btn btn-default" onclick="location.href='userGroupTable.html';">
                                 Grupy Uzytkowników
                             </button>
                         </div>
@@ -95,7 +97,7 @@
                     <label for="birthdayInput">
                         Data urodzin
                     </label>
-                    <input type="date" class="form-control" id="birthdayInput" required/>
+                    <input type="text" class="form-control" id="birthdayInput" required/>
                 </div>
 
                 <div class="form-group">

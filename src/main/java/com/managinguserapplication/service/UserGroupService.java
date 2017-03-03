@@ -18,6 +18,9 @@ public interface UserGroupService {
 
     boolean create(UserGroup userGroup);
 
+    boolean delete(Long id);
+
+    boolean update(Long id, UserGroup userGroup);
 
     UserGroup findByName(String name);
 }

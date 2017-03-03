@@ -7,8 +7,11 @@
     <link href="resources/css/style.css" rel="stylesheet">
     <script src="http://code.jquery.com/jquery-1.10.2.js"></script>
     <script src="http://code.jquery.com/ui/1.11.2/jquery-ui.js"></script>
-    <script src="resources/js/addUserGroup.js"></script>
+    <script src="resources/js/editUserGroup.js"></script>
     <script src="resources/js/getUserGroupName.js"></script>
+    <script src="resources/js/getOneUserGroup.js"></script>
+    <script src="resources/js/deleteUser.js"></script>
+
 </head>
 
 
@@ -50,7 +53,7 @@
     <div class="row">
         <div class="col-md-12">
             <h3>
-                Dodaj Grupę
+                Edytuj Grupę
             </h3>
             <form role="form" id="userForm">
 
@@ -64,7 +67,38 @@
                 <button id="submit" type="submit" class="btn btn-default">
                     Submit
                 </button>
+
             </form>
+        </div>
+    </div>
+    <div class="row">
+        <div id="oneUserTable" class="col-md-12">
+            <table class="table table-hover table-striped">
+                <thead>
+                <tr>
+                    <th>
+                        Id
+                    </th>
+                    <th>
+                        nazwa
+                    </th>
+                    <th>
+                        nazwisko
+                    </th>
+                    <th>
+                        haslo
+                    </th>
+                    <th>
+                        data urodzenia
+                    </th>
+                    <th>
+                        opcje
+                    </th>
+                </tr>
+                </thead>
+                <!--will be load loadUserList.js-->
+            </table>
+
         </div>
     </div>
 </div>

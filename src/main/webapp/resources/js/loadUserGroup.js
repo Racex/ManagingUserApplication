@@ -1,35 +1,48 @@
-                        $(document).ready(function() {
+$(document).ready(function() {
              $.ajax({
                  url: "http://localhost:8080/api/getUserGroup/all"
              }).then(function(userGroupList) {
-                 console.log(userGroupList)
                   var arrayLength = parseInt(userGroupList.length);
+                  var templateGroup;
+                 if(userGroupList.hasOwnProperty("name") || userGroupList.hasOwnProperty("0"))
                   for (i=0; i<=arrayLength; i++) {
 
-
-                   var templateGroup =(
+                   templateGroup =[
                   ' <div class="panel panel-default">'
                    +    '  <div class="panel-heading"> '
-                   +    '   <a class="panel-title" data-toggle="collapse" data-parent="#panel-503269" href="#panel-element-432650">'+userGroupList[i].name+'</a>'
+                   +    '   <a class="panel-title" data-toggle="collapse" data-parent="#prepareGroupTable" href="#panel-element-42650'+String(i)+'">'+userGroupList[i].name+'</a>'
                    +    '    </div> '
-                   );
+                   +    '   <div id="#panel-element-42650'+String(i)+'" class="panel-collapse collapse "> '
+                       +    '    <div class="panel-body"> '
+                   ];
 
-                   var tamplateUser
-                   for(j=0; j=userGroupList[i].usersList.length;j++ )
+                   var templateUser ="";
+                   var userListArray = userGroupList[i].usersList;
+                   console.log(userListArray)
+                   for(j=0; j == userListArray.length ;j++ )
                    {
-                        var tamplate =(
-                                          '   <div id="panel-element-432650" class="panel-collapse collapse in"> '
-                                     +    '    <div class="panel-body"> '
-                                     +    '     <tbody><tr class="active"><td>'+userGroupList[i].usersList[j].id+'</td> <td>'+userGroupList[i].usersList[j].username+'</td> <td>'+userGroupList[i].usersList[j].surrname+'</td> <td>'+userGroupList[i].usersList[j].password+'</td> <td>'+new Date(Number(userGroupList[i].usersList[j].birthdaydate)).toLocaleString()
-                                         +' <td>'+userList[j].userGroupName+'</td></tr></tbody> '
-                                     +    '   </div> '
-                                     +    ' </div> ');
-                                     templateUser +=template;
+                         templateUser +=[
+                                     +    '<tbody>' +
+                                            '<tr class="active">' +
+                                     '          <td>'+userListArray[j].id+'</td>' +
+                                     '          <td>'+userListArray[j].username+'</td>' +
+                                     '          <td>'+userListArray[j].surrname+'</td>' +
+                                     '          <td>'+userListArray[j].password+'</td>' +
+                                     '          <td>'+new Date(Number(+userListArray[j].birthdaydate)).toLocaleString() +
+                                     '         <td>'+userListArray[j].userGroupName+'</td>' +
+                                     '      </tr>' +
+                                     '  </tbody> '
+                         ];
+
                    }
-                   console.log(templateGroup+tamplateUser+'</div>');
-                  $('#prepareGroupTable div').append(templateGroup+tamplateUser+'</div>');
-                   };
+                   var close =[
+                       +    '   </div> '
+                       +    ' </div> '+
+                       +   "</div>"
+                   ];
 
-
+                      $('#prepareGroupTable').append(templateGroup+templateUser+close);//+tamplateUser+'</div>');
+                  }
+                 return false;
              });
          });

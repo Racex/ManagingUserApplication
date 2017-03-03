@@ -25,13 +25,18 @@ public class UserGroupServiceImpl implements UserGroupService {
 
     @Override
     public UserGroup findOne(Long id) {
-        return userGroupRepository.getOne(id);
+        return userGroupRepository.findById(id);
     }
 
     @Override
     public boolean create(UserGroup userGroup) {
+        for(UserGroup x : userGroupRepository.findAll())
+        {
+            if(x.getName().equals(userGroup.getName()))
+            return false;
+        }
         userGroupRepository.save(userGroup);
-        return false;
+        return true;
     }
 
     @Override
@@ -39,6 +44,23 @@ public class UserGroupServiceImpl implements UserGroupService {
         return userGroupRepository.findByName(name);
     }
 
+    @Override
+    public boolean delete(Long id) {
+        try {
+            userGroupRepository.delete(id);
+        }catch (Exception e)
+        {
+            return false;
+        }return true;
+    }
 
+    @Override
+    public boolean update(Long id, UserGroup userGroup) {
+        if(userGroup.getName() == null)
+        return false;
+        userGroup.setId(id);
+        userGroupRepository.save(userGroup);
+        return true;
 
+    }
 }

@@ -1,7 +1,7 @@
-function deleteuser(id) {
+function deleteuserGroup(id) {
             $.ajax({
                 type: 'DELETE',
-                url: ("/api/deleteUser/"+id),
+                url: ("/api/deleteUserGroup/"+id),
                 cache: false,
             });
     location.reload();

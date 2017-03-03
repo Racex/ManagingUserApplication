@@ -16,6 +16,7 @@ public class UserGroup {
     @Column(name = "Id_grupy_uzytkownika")
     private Long id;
 
+
     @Column(name = "nazwa")
     private String name;
 
